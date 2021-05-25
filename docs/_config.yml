@@ -31,6 +31,8 @@ github_username:  152334H
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme
+remote_theme: jekyll/minima
 minima:
     skin: dark
     date_format: "%b %-d, %Y"
