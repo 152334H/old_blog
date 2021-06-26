@@ -4,9 +4,9 @@ title:  "Hosting pwn challenges: a simple tutorial"
 date:   2021-06-26 17:28:35 +0800
 categories: pwn
 ---
-In light of recent [e](https://docs.google.com/document/d/1nGMHg4F4jEzvL-RaqpQtxIF4Da_Gxycxqru1VWTP6CI/edit)v[e](https://seanseah.tech/writeups/2021/06/25/CDDC.html)n[t](https://www.notion.so/sheepymeh/CDDC21-Review-f239e9f81a32434f8e7af3053c9c74e8)s, I've been convinced to share a _basic_ tutorial on how You --- the ordinary programmer with minimal Linux/Docker/Networking experience --- can host [binary exploitation](https://caprinux.github.io/lawofpwn/prologue/whatispwn) challenges with minimal hassle and reasonable security.
+In light of recent [ev](https://docs.google.com/document/d/1nGMHg4F4jEzvL-RaqpQtxIF4Da_Gxycxqru1VWTP6CI/edit)[en](https://seanseah.tech/writeups/2021/06/25/CDDC.html)[ts](https://www.notion.so/sheepymeh/CDDC21-Review-f239e9f81a32434f8e7af3053c9c74e8), I've been convinced to share a basic tutorial on how _You_ --- the ordinary programmer with minimal Linux/Docker/Networking experience --- can host [binary exploitation](https://caprinux.github.io/lawofpwn/prologue/whatispwn) challenges with minimal hassle and reasonable security.
 
-# Requirements
+## Requirements
 * A stable linux server with the <a href="" title="If you're not using something debian-based, you wouldn't need this guide.">packages</a> `docker-ce` and `git` installed.
 * One (or more) pwn challenge(s) you intend to host 
 * Basic linux experience
@@ -17,15 +17,15 @@ That's it.
 Let's say you have a binary named [`chal`](https://github.com/152334H/pwntutorial/blob/master/ret2libc/ret2libc.c), as well as a `flag`.
 
 We'll start by [git cloning](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository) a [`template folder`](https://github.com/152334H/ctf_xinetd):
-```bash=
+```bash
 git clone https://github.com/152334H/ctf_xinetd
 ```
 Move the `chal`lenge binary & `flag` into `ctf_xinetd/bin`:
-```bash=
+```bash
 mv chal flag ctf_xinetd/bin
 ```
 If you plan on hosting multiple pwn challenges, you might want to rename the cloned folder:
-```bash=
+```bash
 mv ctf_xinetd my_uniq_chal_name
 ```
 The final result should look something like this:
@@ -57,9 +57,9 @@ You put: hi
 If you ever need to change the challenge file, you can update the running service by running `./rebuild.sh`.
 
 ## Benefits of using this
-* it's really simple and you can't mess it up (finger's crossed)
+* it's really simple and you can't mess it up (fingers crossed)
 * shell permissions are limited and you won't have players [messing with the shell](https://media.discordapp.net/attachments/823190327576756314/857630922513842216/unknown.png) or [erasing flags](https://media.discordapp.net/attachments/837571570876284929/857952303838527498/unknown.png) halfway through a CTF
-* you run a `.sh` file controlled by me without ever reading its contents
+* you run an `.sh` file controlled by me without ever reading its contents
 
 ## Downsides of using this
 * might not scale very well
