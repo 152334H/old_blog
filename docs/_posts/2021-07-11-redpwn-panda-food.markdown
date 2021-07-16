@@ -255,7 +255,7 @@ printName()
 
 My hope here is that, in using allocations of different sizes, the merging and reallocation<sup>3</sup> of a freed `foods[2]` will lead to one of the input strings overwriting `*favorites`.
 
-The code above produces a crash somewhere around 20% of the time; here's one possible variant of a crash, where the contents of `favorite` are overwritten with the string data of the 2nd re-allocation: 
+The code above produces a crash _sometimes_<sup>4</sup>; here's one possible variant of a crash, where the contents of `favorite` are overwritten with the string data of the 2nd re-allocation: 
 
 ```
 (gdb) telescope favorite
@@ -396,7 +396,7 @@ I do _even more experiments_, and I hit a good solution:
 2. create a new `unique_ptr` at `foods[idx]`, where `foods[idx]` has never been allocated before. Ensure that `name.size() > 0x28` to keep `tcache[size=0x30]` empty.
 3. favorite `foods[idx]`; repeat step 2. `tcache[size=0x30]` should _only_ contain `favorites` now.
 4. create a new `unique_ptr` at `foods[nidx]`, where `foods[nidx]` has never been allocated before, and `name.size()` lies within [0x10, 0x18).
-5. If `foods[nidx]` was a Bamboo<sup>4</sup>, `favorites` remains at the top of `tcache[size=0x30]`, and step 4 should be repeated. Otherwise, `favorites` was overwritten with the `name` from step 4.
+5. If `foods[nidx]` was a Bamboo<sup>5</sup>, `favorites` remains at the top of `tcache[size=0x30]`, and step 4 should be repeated. Otherwise, `favorites` was overwritten with the `name` from step 4.
    `favorites` has a `(1/2)**i` chance of being overwritten correctly, where `i` is the number of times step 4 happens. 
 
 Programmatically:
@@ -412,7 +412,7 @@ def fakeFood(payload: bytes) -> int:
     return idx
 ```
 
-This works reliably, so long as `payload` contains no whitespace. Right now, I have:
+This works reliably (1/1024 failure rate), so long as `payload` contains no whitespace (~1/15 failure rate). Right now, I have:
 
 1. a reliable exploit that produces an arbitrary read, as well as RIP control.
 2. a reliable heap pointer leak
@@ -498,7 +498,9 @@ flag{hijacking_vtables_like_321_4243f93}
 1. Necessarily, this writeup will be riddled with misinformation and mistakes. Don't take this as gospel, read the sources for yourself, and make a PR on this writeup if there's a mistake you really care about.
 2. This is not the proper terminology and I won't pretend I know what it ought to be.
 3. This doesn't happen at all in reality. It's almost impossible to remerge any of the allocations back into `malloc_arena->top`, meaning that most allocations remain confined to their own tcaches (and fastbins/smallbins if necessary), The experiment here worked as a matter of coincidence: when `string.size()` is in the range [0x10, 0x1f), a `malloc(0x1f)` call is made to handle it. This just-so-happens to land in `tcache[size=0x30]`, which is also host to Food/Bamboo structs.
-4. I'm still not sure about this part. The code seems to indicate vice versa, but either way it's still a 1/2 chance per loop.
+4. The odds of crashing are proportional to the number of `size=0x30` chunks present on the tcache. It's easier to understand once you grasp how [allocations are handled](#better-primitives), but in short: the first reallocation (`'A'`) puts `foods[2]` on `tcache[size=0x30]`. The second allocation will overwrite that chunk with `B` if its not a `Food` type, giving baseline odds of 50%. These odds go downhill if the tcache is filled with enough garbage -- something which I didn't draw a connection to until I figured out a consistent exploit primitive.
+   In any case, `(50%)**3` isn't good enough odds for the exploit I want.
+5. I'm still not sure about this part. The code seems to indicate vice versa, but either way it's still a 1/2 chance per loop.
 
 ## TLDR
 
@@ -511,7 +513,7 @@ flag{hijacking_vtables_like_321_4243f93}
 
 ## Code
 
-note: your libc-database might contain ` libc6_2.27-3ubuntu1.3_amd64`; I removed it because the package for that libc version [appears to be deleted](archive.ubuntu.com/ubuntu/pool/main/g/glibc/libc6_2.27-3ubuntu1.3_amd64.deb).
+note: your libc-database might contain `libc6_2.27-3ubuntu1.3_amd64`; I removed it because the package for that libc version [appears to be deleted](archive.ubuntu.com/ubuntu/pool/main/g/glibc/libc6_2.27-3ubuntu1.3_amd64.deb).
 
 It's also worth noting that this code should succeed both locally _and_ on remote. 
 
