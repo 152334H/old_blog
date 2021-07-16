@@ -175,7 +175,7 @@ The first thing I search for is [`std::move`](https://en.cppreference.com/w/cpp/
 
 I search for [`std::make_unique`](https://en.cppreference.com/w/cpp/memory/unique_ptr/make_unique) next. It returns a [`std::unique_ptr`](https://en.cppreference.com/w/cpp/memory/unique_ptr), so I search for that too. With a little bit of reading, I figure out that I've actually heard of `unique_ptr`s before, under a different name: [smart pointers](https://docs.microsoft.com/en-us/cpp/cpp/smart-pointers-modern-cpp). The example at the link makes them really easy to understand:
 
-![](../assets/image-20210711100648195.png)
+![](/assets/image-20210711100648195.png)
 
 A `unique_ptr` will be deleted (freed) when it goes "out of scope". In the case of the current program, there's a `unique_ptr<Food> tmp` scoped to `case 0`: 
 
@@ -442,7 +442,7 @@ PIE_leak = leak(heapbase+foods1_offset) # this is a leak of `food[idx]->_vtable`
 
 The pointer leaked is either `Food`'s vtable or `Bamboo`'s vtable, depending on what `food[idx]` was.
 
-![](../assets/image-20210711113202397.png)
+![](/assets/image-20210711113202397.png)
 
 I'll use that information to calculate the PIE base:
 
