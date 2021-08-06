@@ -55,6 +55,14 @@ include:
 #    writeups:
 #        output: true
 #        permalink: /:collection/:path/
+author:
+  name: "152334H"
+  bio: "pwn et al."
+  location: "Singapore, Singapore"
+  links:
+      - label: "GitHub"
+        icon: "fab fa-fw fa-github"
+        url: "https://github.com/152334H"
 
 defaults:
     # _pages
