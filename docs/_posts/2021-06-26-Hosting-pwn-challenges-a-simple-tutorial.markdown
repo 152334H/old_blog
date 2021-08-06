@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title:  "Hosting pwn challenges: a simple tutorial"
 date:   2021-06-26 17:28:35 +0800
 categories: pwn

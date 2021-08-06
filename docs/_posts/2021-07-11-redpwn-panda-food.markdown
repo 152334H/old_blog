@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title:  "C++ Smart Pointer UAFs: redpwn 2021's panda-food"
 date:   2021-07-11 14:17:40 +0800
 categories: writeup

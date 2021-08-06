@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title:  "ICHSA 2021: COP"
 date:   2021-06-03 07:19:04 +0800
 categories: writeup

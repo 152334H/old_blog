@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title:  "N1CTF 2020: EasyWrite"
 date:   2020-10-19 13:49:27 +0800
 categories: writeups
