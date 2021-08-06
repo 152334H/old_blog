@@ -68,7 +68,7 @@ defaults:
         share: true
     # writeup
     - scope:
-        path: "writeup"
+        path: "_posts"
         type: writeup
       values:
         layout: single
