@@ -40,6 +40,18 @@ plugins:
 #    skin: solarized-dark
 #    date_format: "%b %-d, %Y"
 
+defaults:
+    # _posts
+    - scope:
+        path: ""
+        type: posts
+      values:
+        layout: single
+        author_profile: false
+        read_time: true
+        comments: true
+        share: true
+        related: true
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
