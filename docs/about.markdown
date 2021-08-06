@@ -3,7 +3,6 @@ layout: single
 title: About
 permalink: /about/
 ---
-# Whoami
 Python programmer & [pwner](https://ctftime.org/user/75701) with [Sieberrsec](https://irscybersec.tk/).
 
 Future undergrad @ NUS CS.
