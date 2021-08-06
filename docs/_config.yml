@@ -40,6 +40,15 @@ plugins:
 #    skin: solarized-dark
 #    date_format: "%b %-d, %Y"
 
+# begin minimal_mistakes stuff
+minimal_mistakes_skin: "dark"
+repository: "152334H/152334h.github.io"
+comments:
+    provider: "false" # utterances
+#    utterances:
+#        theme: "github-dark'
+
+
 defaults:
     # _posts
     - scope:
@@ -51,7 +60,7 @@ defaults:
     # writeups
     - scope:
         path: ""
-        type: writeups
+        type: writeup
       values:
         layout: single
         read_time: true
