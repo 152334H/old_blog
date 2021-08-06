@@ -28,14 +28,15 @@ url: "https://152334h.github.io" # the base hostname & protocol for your site, e
 github_username:  152334H
 
 # Build settings
-theme: minima
+theme: minimal-mistakes-jekyll
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
-remote_theme: jekyll/minima
-minima:
-    skin: solarized-dark
-    date_format: "%b %-d, %Y"
+#theme: minima
+#remote_theme: jekyll/minima
+#minima:
+#    skin: solarized-dark
+#    date_format: "%b %-d, %Y"
 
 # Exclude from processing.
 # The following items will not be processed, by default.
