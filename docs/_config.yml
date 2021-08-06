@@ -28,10 +28,12 @@ url: "https://152334h.github.io" # the base hostname & protocol for your site, e
 github_username:  152334H
 
 # Build settings
-theme: minimal-mistakes-jekyll
+#theme: minimal-mistakes-jekyll
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
+  - jekyll-include-cache
 #theme: minima
 #remote_theme: jekyll/minima
 #minima:
