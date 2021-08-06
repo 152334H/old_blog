@@ -8,7 +8,7 @@ There weren't many pwn challenges in [ICHSA CTF](https://ctftime.org/event/1359/
 
 # [COP](https://github.com/IRS-Cybersec/ctfdump/blob/master/ICHSA%202021/COP.md) [500]
 
-##### Hi COP
+Hi COP
 
 I wrote a game that should be impossible to win.
 
