@@ -26,8 +26,6 @@ author_profile: true
   {% endfor %}
 {% endif %}
 
-{{ content }}
-
 {% assign tags_max = 0 %}
 {% for tag in site.tags %}
   {% if tag[1].size > tags_max %}
