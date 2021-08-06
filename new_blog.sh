@@ -12,7 +12,7 @@ filename+='.markdown'
 if ! [ -f "$filename" ]
 then cat > "$filename" <<EOF
 ---
-layout: post
+layout: single
 title:  "$title"
 date:   $(date +%Y-%m-%d\ %H:%M:%S) +0800
 categories: writeup

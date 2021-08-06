@@ -44,7 +44,7 @@ plugins:
 minimal_mistakes_skin: "dark"
 repository: "152334H/152334h.github.io"
 comments:
-    provider: "false" # utterances
+    provider: "utterances"
     utterances:
         theme: "github-dark"
 
