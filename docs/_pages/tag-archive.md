@@ -5,6 +5,7 @@ layout: tags
 author_profile: true
 ---
 {% if site.tags != "" %}
+  <!--debugging on production-->
   {% assign rawtags = "" %}
   {% for post in site.posts %}
     {% assign ttags = post.tags | join:'|' | append:'|' %}
