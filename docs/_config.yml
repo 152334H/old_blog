@@ -41,7 +41,7 @@ plugins:
 #    date_format: "%b %-d, %Y"
 
 # begin minimal_mistakes stuff
-minimal_mistakes_skin: "dark"
+minimal_mistakes_skin: "neon"
 repository: "152334H/152334h.github.io"
 comments:
     provider: "utterances"
