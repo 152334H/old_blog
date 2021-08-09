@@ -11,7 +11,9 @@ Back in May, I started work on the outlines of a special blogpost. It's working 
 
 Fast forward to now. In the leadup to the [9th of August](https://en.wikipedia.org/wiki/National_Day_(Singapore)), I spent my weekend huddled in my house, itching away at [RaRCTF](https://ctftime.org/event/1342)'s toughest pwnable: an introductory heap CLI that _certain professionals_ finished within hours:
 
-![](/assets/image-20210809170637512.png)
+<p align="center">
+<img src="/assets/image-20210809170637512.png">
+</p>
 
 I wasn't one of those professionals. Have a look at the scoreboard graph for the [group of experts](https://ctftime.org/team/77768) I happened to tag along with:
 
@@ -86,7 +88,9 @@ mv /pwn/flag.txt /pwn/$(xxd -l 16 -p /dev/urandom).txt
 
 `mount` has a good number of functions: 
 
-![](/assets/image-20210807091923816.png)
+<p align="center">
+<img src="/assets/image-20210807091923816.png">
+</p>
 
 There's a function named `win`; that seems rather important.
 
@@ -98,7 +102,9 @@ ssize_t win() {
 }
 ```
 
-![](/assets/image-20210807092139558.png)
+<p align="center">
+<img src="/assets/image-20210807092139558.png">
+</p>
 
 The binary doesn't have PIE or stack canaries _or RELRO_ enabled, so the bulk of this challenge must be in gaining RIP control via a GOT overwrite.
 
@@ -907,9 +913,13 @@ free(0)
 r.interactive()
 ```
 
-![](/assets/image-20210809190804515.png)
+<p align="center">
+<img src="/assets/image-20210809190804515.png">
+</p>
 
-![](/assets/image-20210809190903079.png)
+<p align="center">
+<img src="/assets/image-20210809190903079.png">
+</p>
 
 Oh, look! It stops in `find_id()`. Which only stops because `*((void*)p-0x10) == NULL` for the `p` in `mfree(p)`. So I should probably find a way to edit `prev_size` for one of the `strdup()`'d pointers.
 
