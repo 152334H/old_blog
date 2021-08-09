@@ -7,7 +7,7 @@ categories: writeup
 
 # Getting things wrong: How I spent 24-hours on a beginner's CTF pwn
 
-_If you're only interested in the technical details for_ The Mound, _I have a minified version of this post on [ctfdump](https://github.com/IRS-Cybersec/ctfdump/RaRCTF%202021/The%20Mound)_.
+_If you're only interested in the technical details for_ The Mound, _I have a minified version of this post on [ctfdump](https://github.com/IRS-Cybersec/ctfdump/tree/master/RaRCTF%202021/The%20Mound)_.
 
 Back in May, I started work on the outlines of a special blogpost. It's working title was _Doing pwn fast: a personal strategy for speedpwning in CTFs_, and I scrapped it when I realised how luridly inefficient I can be in the process of pwning. The inefficiency – as revolting as it was – wasn't an immediate concern, and I moved on.
 
